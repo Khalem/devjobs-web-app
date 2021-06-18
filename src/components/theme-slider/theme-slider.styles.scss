@@ -10,12 +10,27 @@
         border-radius: 12px;
         background-color: white;
         cursor: pointer;
+
+        &:hover {
+            .dot {
+                background-color: var(--light-violet);
+            }
+        }
         
         .dot {
             width: 14px;
             height: 14px;
-            background-color: blue;
+            background-color: var(--violet);
             border-radius: 50%;
+            transition: all .2s ease-in-out;
+        }
+
+        .light {
+            transform: translateX(0px);
+        }
+
+        .dark {
+            transform: translateX(24px);
         }
     }
 }
