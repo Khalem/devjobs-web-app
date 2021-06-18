@@ -1,11 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+// Local Components Imports
+import Homepage from './pages/homepage/homepage.component';
 
-function App() {
+// Stylesheet imports
+import './App.scss';
+
+const App = () => {
   return (
-    <div className="App">
-      <h1>Devjobs Web App</h1>
-    </div>
+    <Homepage />
   );
 }
 
