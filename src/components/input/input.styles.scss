@@ -1,13 +1,12 @@
 @mixin sharedStyle {
     display: flex;
-    justify-content: center;
     align-items: center;
-    justify-self: start;
 
     input {
         font-family: var(--sans-serif);
         font-size: 16px;
         margin: 0 0 0 16px;
+        padding: 10px 0;
         border: none;
         background-color: transparent;
         outline: none;
@@ -23,9 +22,11 @@
 
 .title-search {
     @include sharedStyle();
+    justify-content: left;
+    width: 55%;
 
     input {
-        width: 60%;
+        width: 70%;
     }
 }
 
@@ -40,13 +41,15 @@
 @media only screen and (min-width: 768px) {
     .title-search {
         width: 32.22%;
-        
+        justify-content: center;
+
         input {
             width: 71.3%;
         }
     }
     .location-search {
         width: 27.43%;
+        justify-content: center;
 
         input {
             width: 73.23%;

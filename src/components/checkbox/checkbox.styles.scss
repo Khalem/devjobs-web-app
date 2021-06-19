@@ -1,0 +1,45 @@
+@mixin flexCenterCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin checkbox {
+    @include flexCenterCenter();
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+    margin: 0 16px 0 0;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        background-color: var(--light-violet);
+    }
+}
+
+.checkbox-container {
+    @include flexCenterCenter();
+
+    .checkbox-unchecked {
+        @include checkbox();
+        background-color: rgba(25, 32, 45, .135);
+    }
+
+    .checkbox-checked {
+        @include checkbox();
+        background-color: var(--violet);
+    }
+
+    span {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    @media only screen and (min-width: 768px) {
+        margin: 0 28px 0 20px;
+    }
+    @media only screen and (min-width: 1280px) {
+        margin: 0 26px 0 32px;
+    }
+}
