@@ -9,7 +9,7 @@
 
 
     .header-content {
-        width: 327px;
+        width: var(--width);
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
@@ -19,13 +19,6 @@
             font-size: 28px;
             margin: 0;
             color: white;
-        }
-
-        @media only screen and (min-width: 768px) {
-            width: 689px;
-        }
-        @media only screen and (min-width: 1280px) {
-            width: 1110px;
         }
     }
 

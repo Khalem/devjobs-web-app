@@ -9,6 +9,15 @@
   --light-grey: #F4F6F8;
   --grey: #9DAEC2;
   --dark-grey: #6E8098;
+  --width: 87.2%;
+  --sans-serif: 'Kumbh Sans', sans-serif;
+
+  @media only screen and (min-width: 768px) {
+    --width: 689px;
+  }
+  @media only screen and (min-width: 1280px) {
+    --width: 1110px;
+  }
 }
 
 body {
