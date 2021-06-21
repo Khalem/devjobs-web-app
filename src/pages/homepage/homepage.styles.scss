@@ -5,5 +5,9 @@
         flex-wrap: wrap;
         width: var(--width);
         margin: 0 auto;
+
+        @media only screen and (min-width: 1280px) {
+            justify-content: start;
+        }
     }
 }

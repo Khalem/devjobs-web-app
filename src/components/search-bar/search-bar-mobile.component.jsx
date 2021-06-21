@@ -10,9 +10,10 @@ import { ReactComponent as LocationIcon } from '../../assets/desktop/icon-locati
 
 import './search-bar-mobile.styles.scss';
 
-const SearchBarMobile = () => {
+const SearchBarMobile = ({ handleSubmit }) => {
     const [checked, setChecked] = useState(false);
     const [modalActive, setModalActive] = useState(false);
+    const [formData, setFormData] = useState({ title: '', location: '' });
 
     // detect when user clicks off filter menu
     useEffect(() => {
@@ -25,15 +26,30 @@ const SearchBarMobile = () => {
         });
     }, []);
 
+    const handleChange = e => {
+        const { name, value } = e.target;
+        const obj = { ...formData, [name]: value };
+        setFormData(obj);
+    };
+
+    const beforeSubmit = (e) => {
+        setModalActive(false);
+        handleSubmit(e, formData, checked);
+        setFormData({ title: '', location: '' });
+        setChecked(false);
+    }
+
     return (
         <Fragment>
             <div className='search-bar-container'>
-                <form className='search-bar'>
+                <form className='search-bar' onSubmit={beforeSubmit}>
                     <Input
                         type='text'
                         className='title-search'
                         placeholder='Filter by title...'
                         name='title'
+                        value={formData.title}
+                        onChange={handleChange}
                     />
                     <div className='filter' onClick={() => setModalActive(true)}>
                         <FilterIcon />
@@ -48,7 +64,9 @@ const SearchBarMobile = () => {
                         <Input 
                             className='location-search'
                             Icon={LocationIcon}
-                            placeholder='Filter by location…' 
+                            placeholder='Filter by location…'
+                            value={formData.location}
+                            onChange={handleChange}
                             name='location'
                         />
                         <div>
@@ -57,7 +75,7 @@ const SearchBarMobile = () => {
                                 setChecked={setChecked}
                                 isTablet={false}
                             />
-                            <Button width='100%'>Search</Button>
+                            <Button width='100%' handleClick={beforeSubmit}>Search</Button>
                         </div>
                     </div>
                 </div>
