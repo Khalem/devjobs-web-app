@@ -1,0 +1,9 @@
+.homepage {
+    .job-cards-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: var(--width);
+        margin: 0 auto;
+    }
+}
