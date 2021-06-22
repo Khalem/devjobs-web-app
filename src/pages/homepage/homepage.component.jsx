@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import Header from '../../components/header/header.component';
@@ -9,10 +9,17 @@ import JobCard from '../../components/job-card/job-card.component';
 import initialData from '../../data/data.json';
 
 import './homepage.styles.scss';
+import Button from '../../components/button/button.component';
 
 const Homepage = () => {
-    const [data, setData] = useState(initialData);
+    const [data, setData] = useState([]);
     const isTabletOrDesktop = useMediaQuery({ minWidth: 768 });
+
+    useEffect(() => {
+        const paginatedData = initialData.slice(0, 12);
+        console.log(paginatedData);
+        setData(paginatedData);
+    }, []);
 
     const handleSubmit = (e, { title, location }, fulltime) => {
         e.preventDefault();
@@ -44,6 +51,16 @@ const Homepage = () => {
         }
     };
 
+    const handlePagination = () => {
+        if (data.length < initialData.length) {
+            const paginatedData = initialData;
+            setData(paginatedData);
+        } else {
+            const paginatedData = initialData.slice(0, 12);
+            setData(paginatedData);
+        }
+    };
+
     return (
         <section className='homepage'>
             <Header />
@@ -55,6 +72,9 @@ const Homepage = () => {
                     ))
                 }
             </section>
+            <div className='button-container'>
+                <Button handleClick={handlePagination}>{ data.length === initialData.length ? 'Show Less' : 'Load More' }</Button>
+            </div>
         </section>
     )
 };

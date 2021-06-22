@@ -1,4 +1,6 @@
 .homepage {
+    padding: 0 0 50px 0;
+
     .job-cards-container {
         display: flex;
         justify-content: space-between;
@@ -8,6 +10,14 @@
 
         @media only screen and (min-width: 1280px) {
             justify-content: start;
+        }
+    }
+
+    .button-container {
+        text-align: center;
+
+        button {
+            margin: 20px 0;
         }
     }
 }
