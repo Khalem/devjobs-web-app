@@ -4,7 +4,7 @@
     font-family: var(--sans-serif);
     font-size: 16px;
     font-weight: 700;
-    padding: 16px 35px;
+    padding: 16px 21px;
     border-radius: 5px;
     border: none;
     outline: none;
@@ -28,5 +28,14 @@
     }
     @media only screen and (min-width: 1280px) {
         padding: 16px 35px;
+    }
+}
+
+.inverted {
+    background-color: rgba(89, 100, 224, .1);
+    color: var(--violet);
+
+    &:hover {
+        background-color: rgba(89, 100, 224, .35)
     }
 }

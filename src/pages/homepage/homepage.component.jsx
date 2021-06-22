@@ -63,7 +63,6 @@ const Homepage = () => {
 
     return (
         <section className='homepage'>
-            <Header />
             { isTabletOrDesktop ? <SearchBar handleSubmit={handleSubmit} /> : <SearchBarMobile handleSubmit={handleSubmit} /> }
             <section className='job-cards-container'>
                 {
