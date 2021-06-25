@@ -5,6 +5,7 @@ import JobHeader from '../../components/job-header/job-header.component';
 import TimePostedFulltime from '../../components/time-posted-fulltime/time-posted-fulltime';
 import Button from '../../components/button/button.component';
 import JobInfo from '../../components/job-info/job-info.component';
+import JobPostFooter from '../../components/job-post-footer/job-post-footer.component';
 
 import initialData from '../../data/data.json';
 
@@ -22,12 +23,12 @@ const JobPost = () => {
         });
     }, []);
 
+    if (!job) return <h1>Loading..</h1>
+
     return (
-        <section className='job-post-container'>
-            {
-                job ?
-                <Fragment>
-                    <JobHeader 
+        <Fragment>
+            <section className='job-post-container'>
+                <JobHeader 
                         logo={job.logo}
                         logoBackground={job.logoBackground}
                         company={job.company}
@@ -35,7 +36,7 @@ const JobPost = () => {
                     />
                     <div className='job-details-container'>
                         <div className='job-details-header'>
-                            <div className='job-details-header-text'>
+                             <div className='job-details-header-text'>
                                 <TimePostedFulltime 
                                     postedAt={job.postedAt}
                                     contract={job.contract}
@@ -56,10 +57,14 @@ const JobPost = () => {
                             ol={true}
                         />
                     </div>
-                </Fragment>
-                : <h1>Loading..</h1>
-            }
-        </section>
+            </section>
+            <JobPostFooter 
+                isMobile={isMobile}
+                apply={job.apply}
+                position={job.position}
+                company={job.company}
+            />
+        </Fragment>
     );
 };
 
