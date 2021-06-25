@@ -1,6 +1,47 @@
 .job-post-container {
     width: var(--width);
     margin: 0 auto;
+    padding: 0 0 100px 0;
+    color: var(--very-dark-blue);
+
+    p {
+        line-height: 26px;
+        color: var(--dark-grey);
+    }
+
+    .job-details-container {
+        background-color: var(--white);
+        padding: 40px 24px;
+        border-radius: 6px;
+
+        .job-details-header {
+            margin: 0 0 32px 0;
+
+            .job-details-header-text {
+                h1, h4 {
+                    margin: 12px 0;
+                }
+
+                h4 {
+                    color: var(--violet);
+                }
+            }
+
+            button {
+                margin: 40px 0 0 0;
+            }
+
+            @media only screen and (min-width: 768px) {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                button {
+                    margin: 0;
+                }
+            }
+        }
+    }
 
     @media only screen and (min-width: 1280px) {
         width: 730px;

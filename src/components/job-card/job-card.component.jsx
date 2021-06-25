@@ -1,5 +1,7 @@
 import { withRouter } from 'react-router-dom';
 
+import TimePostedFulltime from '../time-posted-fulltime/time-posted-fulltime';
+
 import { getLogoUrl } from '../../utils/logo.utils';
 
 import './job-card.styles.scss';
@@ -14,11 +16,10 @@ const JobCard = ({ obj: { id, logo, logoBackground, company, postedAt, contract,
                     alt={company} 
                 />
             </div>
-            <div className='time-posted-fulltime-wrapper'>
-                <p>{postedAt}</p>
-                <div className='dot' />
-                <p>{contract}</p>
-            </div>
+            <TimePostedFulltime 
+                postedAt={postedAt}
+                contract={contract}
+            />
             <h3 className='job-title' onClick={() => history.push(`/${id}`)}>{position}</h3>
             <p className='job-company'>{company}</p>
             <h4 className='job-location'>{location}</h4>

@@ -16,24 +16,6 @@
         transform: translateY(-50%);
     }
 
-    .time-posted-fulltime-wrapper {
-        display: flex;
-        align-items: center;
-        color: var(--dark-grey);
-
-        p {
-            margin: 0;
-        }
-
-        .dot {
-            width: 4px;
-            height: 4px;
-            background-color: var(--dark-grey);
-            border-radius: 50%;
-            margin: 0 12px;
-        }
-    }
-
     .job-title {
         color: var(--very-dark-blue);
         cursor: pointer;
