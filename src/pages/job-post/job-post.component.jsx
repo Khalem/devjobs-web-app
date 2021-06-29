@@ -1,5 +1,6 @@
 import { useState, useEffect, Fragment } from 'react';
 import { useParams } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
 import JobHeader from '../../components/job-header/job-header.component';
 import TimePostedFulltime from '../../components/time-posted-fulltime/time-posted-fulltime';
@@ -10,7 +11,6 @@ import JobPostFooter from '../../components/job-post-footer/job-post-footer.comp
 import initialData from '../../data/data.json';
 
 import './job-post.styles.scss';
-import { useMediaQuery } from 'react-responsive';
 
 const JobPost = () => {
     const [job, setJob] = useState(null);
@@ -44,7 +44,7 @@ const JobPost = () => {
                                 <h1>{job.position}</h1>
                                 <h4>{job.location}</h4>
                             </div>
-                            <a href={job.apply} target='_blank'><Button width={isMobile ? '100%' : '141px'}>Apply Now</Button></a>
+                            <a href={job.apply} target='_blank' rel='noreferrer'><Button width={isMobile ? '100%' : '141px'}>Apply Now</Button></a>
                         </div>
                         <p>{job.description}</p>
                         <JobInfo 

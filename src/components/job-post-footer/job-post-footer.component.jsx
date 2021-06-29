@@ -7,7 +7,7 @@ const JobPostFooter = ({ isMobile, apply, position, company }) => (
         {
             isMobile ?
             <div>
-                <a href={apply} target='_blank'><Button width='100%'>Apply Now</Button></a>
+                <a href={apply} target='_blank' rel='noreferrer'><Button width='100%'>Apply Now</Button></a>
             </div>
             :
             <div className='footer-content'>
@@ -15,7 +15,7 @@ const JobPostFooter = ({ isMobile, apply, position, company }) => (
                     <h3>{position}</h3>
                     <p>{company}</p>
                 </div>
-                <a href={apply} target='_blank'><Button>Apply Now</Button></a>
+                <a href={apply} target='_blank' rel='noreferrer'><Button>Apply Now</Button></a>
             </div>
         }
     </div>

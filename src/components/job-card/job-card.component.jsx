@@ -2,7 +2,7 @@ import { withRouter } from 'react-router-dom';
 
 import TimePostedFulltime from '../time-posted-fulltime/time-posted-fulltime';
 
-import { getLogoUrl } from '../../utils/logo.utils';
+import getLogoUrl from '../../utils/logo.utils';
 
 import './job-card.styles.scss';
 

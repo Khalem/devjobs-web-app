@@ -1,4 +1,4 @@
-import { getLogoUrl } from '../../utils/logo.utils';
+import getLogoUrl from '../../utils/logo.utils';
 
 import Button from '../../components/button/button.component';
 
@@ -14,7 +14,7 @@ const JobHeader = ({ logo, logoBackground, company, website }) => (
                 <h2>{company}</h2>
                 <p>{`${company}.com`}</p>
             </div>
-            <a href={website} target='_blank'><Button inverted='true'>Company Site</Button></a>
+            <a href={website} target='_blank' rel='noreferrer'><Button inverted='true'>Company Site</Button></a>
         </div>
     </div>
 );

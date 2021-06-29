@@ -37,7 +37,7 @@ const ThemeSlider = () => {
         for (let key in newTheme) {
             document.documentElement.style.setProperty(key, newTheme[key]);
         }
-    }, [toggled]);
+    }, [toggled, themes.dark, themes.light]);
 
     return (
         <div className='slider-container'>

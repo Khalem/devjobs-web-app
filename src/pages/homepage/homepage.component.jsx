@@ -1,25 +1,24 @@
 import { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-import Header from '../../components/header/header.component';
 import SearchBarMobile from '../../components/search-bar/search-bar-mobile.component';
 import SearchBar from '../../components/search-bar/search-bar.component';
 import JobCard from '../../components/job-card/job-card.component';
+import Button from '../../components/button/button.component';
 
 import initialData from '../../data/data.json';
 
 import './homepage.styles.scss';
-import Button from '../../components/button/button.component';
 
 const Homepage = () => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(initialData);
+    const [paginatedData, setPaginatedData] = useState([]);
+    const [pageCounter, setPageCounter] = useState(1);
     const isTabletOrDesktop = useMediaQuery({ minWidth: 768 });
 
     useEffect(() => {
-        const paginatedData = initialData.slice(0, 12);
-        console.log(paginatedData);
-        setData(paginatedData);
-    }, []);
+        handlePagination(data);
+    }, [pageCounter]);
 
     const handleSubmit = (e, { title, location }, fulltime) => {
         e.preventDefault();
@@ -45,35 +44,42 @@ const Homepage = () => {
 
         if (!fulltime) {
             setData(newData);
+            handlePagination(newData);
         } else {
             const cleanedData = newData.filter(item => item.contract === 'Full Time');
             setData(cleanedData);
+            handlePagination(cleanedData);
         }
     };
 
-    const handlePagination = () => {
-        if (data.length < initialData.length) {
-            const paginatedData = initialData;
-            setData(paginatedData);
+    const handleClick = () => {
+        if (paginatedData.length === initialData.length) {
+            setPageCounter(1);
         } else {
-            const paginatedData = initialData.slice(0, 12);
-            setData(paginatedData);
+            setPageCounter(pageCounter + 1);
         }
     };
+
+    const handlePagination = (dataToPaginate) => {
+        setPaginatedData(dataToPaginate.slice(0, (12 * pageCounter)));
+    }
 
     return (
         <section className='homepage'>
             { isTabletOrDesktop ? <SearchBar handleSubmit={handleSubmit} /> : <SearchBarMobile handleSubmit={handleSubmit} /> }
             <section className='job-cards-container'>
                 {
-                    data.map(obj => (
+                    paginatedData.map(obj => (
                         <JobCard obj={obj} key={obj.id}/>
                     ))
                 }
             </section>
-            <div className='button-container'>
-                <Button handleClick={handlePagination}>{ data.length === initialData.length ? 'Show Less' : 'Load More' }</Button>
-            </div>
+            {
+                data.length >= 12 &&
+                <div className='button-container'>
+                    <Button handleClick={handleClick}>{ paginatedData.length === data.length ? 'Show Less' : 'Load More' }</Button>
+                </div>
+            }
         </section>
     )
 };

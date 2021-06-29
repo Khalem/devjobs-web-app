@@ -1,4 +1,4 @@
-export const getLogoUrl = (url) => {
+const getLogoUrl = (url) => {
     switch(url) {
         case './assets/logos/blogr.svg': return require('../assets/logos/blogr.svg').default;
         case './assets/logos/coffeeroasters.svg': return require('../assets/logos/coffeeroasters.svg').default;
@@ -14,3 +14,5 @@ export const getLogoUrl = (url) => {
         case './assets/logos/vector.svg': return require('../assets/logos/vector.svg').default;
     }
 };
+
+export default getLogoUrl;
