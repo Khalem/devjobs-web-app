@@ -23,7 +23,7 @@
 
     .checkbox-unchecked {
         @include checkbox();
-        background-color: rgba(25, 32, 45, .135);
+        background-color: var(--checkbox-unchecked);
     }
 
     .checkbox-checked {
@@ -34,6 +34,7 @@
     span {
         font-size: 16px;
         font-weight: 700;
+        color: var(--dark-blue-text);
     }
 
     @media only screen and (min-width: 768px) {

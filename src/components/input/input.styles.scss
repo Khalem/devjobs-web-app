@@ -10,11 +10,11 @@
         border: none;
         background-color: transparent;
         outline: none;
-        color: var(--very-dark-blue);
+        color: var(--dark-blue-text);
         caret-color: var(--violet);
     
         &::placeholder {
-            color: var(--very-dark-blue);
+            color: var(--dark-blue-text);
             opacity: 50%;
         }
     }

@@ -32,10 +32,10 @@
 }
 
 .inverted {
-    background-color: rgba(89, 100, 224, .1);
-    color: var(--violet);
+    background-color: var(--blue-opacity);
+    color: var(--violet-button);
 
     &:hover {
-        background-color: rgba(89, 100, 224, .35)
+        background-color: var(--blue-opacity-hover);
     }
 }

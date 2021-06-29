@@ -19,8 +19,8 @@
     }
 
     .header-content {
-        text-align: center;
         padding: 20px 0;
+        text-align: center;
         transform: translateY(-12%);
 
         .company-details {
@@ -31,8 +31,8 @@
             }
 
             p {
-                text-transform: lowercase;
                 color: var(--dark-grey);
+                text-transform: lowercase;
             }
         }
     }
